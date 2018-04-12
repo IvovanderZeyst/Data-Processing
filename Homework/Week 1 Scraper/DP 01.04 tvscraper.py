@@ -15,34 +15,66 @@ TARGET_URL = "http://www.imdb.com/search/title?num_votes=5000,&sort=user_rating,
 BACKUP_HTML = 'tvseries.html'
 OUTPUT_CSV = 'tvseries.csv'
 
-
+# Declaring global lists to store information that will be written to the CSV
+Title, Rating, Genre, Actors, Runtime = ([] for i in range(5))
+ 
 def extract_tvseries(dom):
-    """
-    Extract a list of highest rated TV series from DOM (of IMDB page).
-    Each TV series entry should contain the following fields:
-    - TV Title
-    - Rating
-    - Genres (comma separated if more than one)
-    - Actors/actresses (comma separated if more than one)
-    - Runtime (only a number!)
-    """
-
-    # ADD YOUR CODE HERE TO EXTRACT THE ABOVE INFORMATION ABOUT THE
-    # HIGHEST RATED TV-SERIES
-    # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
-    # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
-
-    return []   # REPLACE THIS LINE AS WELL AS APPROPRIATE
+    
+    # Extract Title from HTML elements, cleanse and assign the data to the assigned list
+    title = [line.get_text() for line in dom.find_all('h3', 'lister-item-header')]
+    titleDef = [element.split('\n') for element in title]
+    for line in titleDef:
+        Title.append(line[2])
+    
+    # Extract Rating from HTML elements, cleanse and assign the data to the assigned list
+    rating = [line.get_text() for line in dom.find_all('div', 'ratings-bar')]
+    ratingDef = [element.split('\n') for element in rating]
+    ratingDef2 = [row[3] for row in ratingDef]
+    for line in ratingDef2:
+        Rating.append(line) 
+    
+    # Extract Genre from HTML elements, cleanse and assign the data to the assigned list
+    genre = [line.get_text() for line in dom.find_all('span', 'genre')]
+    genreDef = [element.replace(' ', '') for element in genre]
+    genreDef2 = [element.split('\n') for element in genreDef]
+    for line in genreDef2:
+        Genre.append(line[1])
+    
+    # Extract actors from HTML elements, cleanse, merge and assign the data to the assigned list 
+    actors = [element.get_text() for element in dom.select("p > a")]
+    actors0 = actors[15:216]
+    actors0.remove('See full summary')
+    actors1 = []
+    actors2 = []
+    actors3 = []
+    actors4 = []
+    for i in range(0, len(actors0)):
+        if i % 4 == 0:
+            actors1.append(actors0[i])
+        elif i % 4 == 1:
+            actors2.append(actors0[i])
+        elif i % 4 == 2:
+            actors3.append(actors0[i])
+        elif i % 4 == 3:
+            actors4.append(actors0[i])
+    for i in range(0, len(Title)):
+        Actors.append(actors1[i] + ', ' + actors2[i] + ', ' + actors3[i] + ', ' + actors4[i])
+    
+    # Extract Runtime from HTML elements, cleanse and assign the data to the assigned list
+    runTime = [line.get_text() for line in dom.find_all('span', 'runtime')]        
+    for element in runTime:
+        Runtime.append(element[0:2])
 
 
 def save_csv(outfile, tvseries):
     """
     Output a CSV file containing highest rated TV-series.
     """
+    # Merge and write the lists to CSV per line
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
-
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
+    for i in range(len(Title)):
+        writer.writerow([Title[i], Rating[i], Genre[i], Actors[i], Runtime[i]])
 
 
 def simple_get(url):
