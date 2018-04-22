@@ -5,6 +5,8 @@
 		<title>JavaScript Line Graph</title>
 	</head>
 	<body>
+		<canvas id="myCanvas" width="1920" height="1080">
+		</canvas>
 		<textarea id="rawdata">
 			20170418,   61
 			20170419,   39
@@ -372,76 +374,87 @@
 			20180416,  114
 			20180417,  128
 		</textarea>
-		<canvas id="myCanvas">
-		</canvas>
 	<script>
-		var dates = [];
-		var temperatures = [];
+		var dateBucket = [];
+		var dateExtractionArray = [];
+		var yearString = [];
+		var monthString = [];
+		var dayString = [];
+		var chartDate = [];
+		var chartTemperature = [];
+		var finalDates = [];
+
+		// Select data from the textarea
 		var data = document.getElementById("rawdata").value.replace(/,/g, '').split(/\s/g);
+
+		// Split the dates from the temperatures and join dates in a string
 		for (var i = 3; i < data.length; i++) {
 			if (data[i].length != 0 && data[i].length > 3) {
-				dates.push(data[i]);
+				dateBucket.push(data[i]);
 			}
 			else if (data[i].length != 0 && data[i].length < 4) {
-				temperatures.push(data[i]);
+				chartTemperature.push(data[i] / 10);
+			}
+			dateExtractionArray = dateBucket.join();
+		}
+
+		// Split the date string into year, month and day and push them to seperate arrays
+		for (var i = 0; i < dateExtractionArray.length; i++){
+			if (i % 9 == 0) {
+					yearString.push(dateExtractionArray[i] + dateExtractionArray[i + 1] + dateExtractionArray[i + 2] + dateExtractionArray[i + 3]);
+			}
+			else if (i % 9 == 4) {
+					monthString.push(dateExtractionArray[i] + dateExtractionArray[i + 1]);
+			}
+			else if (i % 9 == 6) {
+					dayString.push(dateExtractionArray[i] + dateExtractionArray[i + 1]);
 			}
 		}
 
-		var datesFinal = new Date(dates)
-		console.log(dates)
-/*
-		console.log(data)
-		console.log(dates)
-		console.log(typeof(dates))
-		console.log(temperatures)
-		console.log(typeof(temperatures))
-		new Date(dates[i])
+		// Merge the seperated year, month and day into one date string
+		for (var i = 0; i < dateBucket.length; i++) {
+			chartDate[i] = new Date(yearString[i], monthString[i] - 1, dayString[i]);
+		}
 
-		/*console.log(data2);
-		console.log(typeof(data2));
-		console.log(data2.length);
-		console.log(data2[0].length);
-				console.log(data2[1].length);
-						console.log(data2[2].length);
-								console.log(data2[3].length);
-										console.log(data2[4].length);
-												console.log(data2[5].length);*/
+		// Set dates to 1 till 365 as per instruction
+		for (var i = 0; i < chartDate.length; i++) {
+			finalDates.push(Math.floor(chartDate[i].getTime() / 86400000) - 17272);
+		}
 
-
-		var canvas = document.getElementById('myCanvas'); // in your HTML this element appears as <canvas id="myCanvas"></canvas>
+		// Draw canvas for the chart
+		var canvas = document.getElementById('myCanvas');
 		var ctx = canvas.getContext('2d');
 
-		//Once you have the 2D rendering context for a canvas, you can draw within it. For example:
-		ctx.fillStyle = 'rgb(200,0,0)'; // sets the color to fill in the rectangle with
-		ctx.fillRect(10, 10, 55, 50);   // draws the rectangle at position 10, 10 with a width of 55 and a height of 5
-		ctx.clearRect(0, 100, 10, 10);
-		//ctx.innerWidth();
+		// Style the canvas and Chart
+		ctx.fillStyle = 'rgb(200, 200, 200)';
+		ctx.fillRect(0, 0, 765, 425);
+		ctx.moveTo(200, 175);
+		ctx.lineTo(200, 225);
+		ctx.moveTo(200, 225);
+		ctx.lineTo(565, 225);
+		ctx.stroke();
+		ctx.font = "7.5 px Arial"
+		ctx.strokeText("Average maximum temperature in De Bilt (NL)", 275, 150);
 
+		// Insert given function
+		function createTransform(domain, range) {
+		  var domain_min = domain[0];
+		  var domain_max = domain[1];
+		  var range_min = range[0];
+		  var range_max = range[1];
+			var alpha = (range_max - range_min) / (domain_max - domain_min);
+			var beta = range_max - alpha * domain_max;
+		  return function (x) {
+		    return alpha * x + beta;
+		  };
+		}
 
-		function createTransform(domain, range){
-			// domain is a two-element array of the data bounds [domain_min, domain_max]
-			// range is a two-element array of the screen bounds [range_min, range_max]
-			// this gives you two equations to solve:
-			// range_min = alpha * domain_min + beta
-			// range_max = alpha * domain_max + beta
-			// a solution would be:
-
-  		var domain_min = domain[0]
-  		var domain_max = domain[1]
-  		var range_min = range[0]
-  		var range_max = range[1]
-
-  		// formulas to calculate the alpha and the beta
- 			var alpha = (range_max - range_min) / (domain_max - domain_min)
-  		var beta = range_max - alpha * domain_max
-
-  		// returns the function for the linear transformation (y= a * x + b)
-  		return function(x){
-    		return alpha * x + beta;
-  			}
-			}
-
-
+		// Draw chart with the given function
+		var graphDraw = createTransform([Math.min.apply(Math, finalDates), Math.max.apply(Math, finalDates) + 10000000000], [Math.min.apply(Math, chartTemperature), Math.max.apply(Math, chartTemperature) + 10000000000]);
+		for (var i = 0; i < chartTemperature.length - 1; i++) {
+			ctx.lineTo(finalDates[i] + 200, graphDraw(chartTemperature[i] + 200));
+		}
+		// python -m SimpleHTTPServer <8303>
 		</script>
 	</body>
 </html>
