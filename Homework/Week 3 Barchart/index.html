@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 bar chart</title>
+        <script type="text/javascript" src="d3/d3.v3.js"></script>
+        <style>
+          .axis path
+          {
+            fill: white;
+            stroke: black;
+            shape-rendering: crispEdges;
+          }
+
+          .axis line {
+            fill: white;
+            stroke: black;
+            shape-rendering: crispEdges;
+          }
+
+          .axis text {
+            font-family: Calibri-light;
+            font-size: 12px;
+          }
+
+          .toolTip {
+            position: absolute;
+            font-family: Calibri-light;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+          }
+
+          p {
+            font-family: Calibri-light;
+            text-align: center;
+          }
+
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            d3.select("body").append("p").text("Name: Ivo van der Zeyst, Studentnumber: 6166474");
+            d3.select("body").append("p").text("The data I choose is a sample of Google Flu, a now discontinued Google service");
+            d3.select("body").append("p").text("The Barchart represents the number of people (x 1000) who contracted 'regular' flu in 2015, per week");
+
+            d3.selectAll("p")
+              .style("line-height", 0.25)
+              .style("font-family", "Calibri-light")
+
+            d3.json("Flue data.json", function (data) {
+
+              var barPadding = 3;
+              var padding = 20;
+              var w = data.length * 35;
+              var h = 400;
+
+              var xScale = d3.scale.linear()
+                .domain([d3.min(data, function(d) { return parseInt(d.Week); }), d3.max(data, function(d) { return parseInt(d.Week); })])
+                .range([padding, w - padding])
+
+              var yScale = d3.scale.linear()
+                .domain([0, d3.max(data, function(d) { return parseInt(d.Netherlands); })])
+                .range([h - padding, padding])
+
+              console.log(d3.min(data, function(d) { return (d.Week); }))
+              console.log(d3.min(data, function(d) { return typeof(d.Week); }))
+
+              var svg = d3.select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h)
+
+              var xAxis = d3.svg.axis()
+                .scale(xScale)
+                .orient("top")
+                .ticks(data.length)
+
+              var yAxis = d3.svg.axis()
+                .scale(yScale)
+                .orient("left")
+                .ticks(7)
+
+              var tooltip = d3.select("body").append("div").attr("class", "toolTip");
+
+              svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate("+padding+"," + (h - padding) + ")")
+                .call(xAxis);
+
+              svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(" + padding  + ", 0)")
+                .call(yAxis);
+
+              svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x", function(d, i) { return padding + (i * (w / data.length)); })
+                .attr("y", function(d) { return (h - 50) - d.Netherlands * 4; })
+                .attr("width", w / (data.length) - barPadding)
+                .attr("height", function(d) { return d.Netherlands * 4; })
+                .attr("fill", function(d) { return "rgb(170, 191, 63)"; })
+                .on("mousemove", function(d){ tooltip
+                      .style("left", d3.event.pageX - 50 + "px")
+                      .style("top", d3.event.pageY - 70 + "px")
+                      .style("display", "inline-block")
+                      .html("Week: " + (d.Week) + "<br>" + "Persons with Flue (x1000): " + (d.Netherlands));})
+            		.on("mouseout", function(d){ tooltip.style("display", "none");})
+            })
+
+        </script>
+    </body>
+</html>
