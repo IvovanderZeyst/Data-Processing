@@ -8,8 +8,9 @@ var data2 = [];
 var data3 = [];
 var data4 = [];
 var data5 = [];
-var w = 1000;
-var h = 1000;
+var w = data.length * 5;
+var h = 500;
+var padding = 20;
 
 /*
 window.onload = function() {
@@ -38,10 +39,7 @@ function doFunction(error, response) {
     if (i % 60 == 0) {
       variable1.push(data5[i][0]);
     }
-  }
-
-  for (var i = 0; i < data5.length; i++) {
-    if (i % 60 == 30) {
+    else if (i % 60 == 30) {
       variable2.push(data5[i][0]);
     }
   }
@@ -51,7 +49,7 @@ function doFunction(error, response) {
   //console.log(variable2)
 
   for (var i = 0; i < countries.length; i++) {
-    dots.push([variable1[i], variable2[i]]);
+    dots.push([countries[i], variable1[i], variable2[i]]);
   }
 
   //console.log(dots)
@@ -61,11 +59,34 @@ function doFunction(error, response) {
               .attr("width", w)
               .attr("height", h);
 
-            svg.selectAll("circle")
-              .data(dots)
-              .enter()
-              .append("circle")
-              .attr("cx", function(d) { return d[0]; })
-              .attr("cy", function(d) { return d[1]; })
-              .attr("r", 5);
+
+
+              var xScale = d3.scale.linear()
+               .domain([0, 100/*d3.max(dataset, function(d) { return d[0]; })*/])
+               .range([padding, w - padding * 2]);
+
+               var yScale = d3.scale.linear()
+                .domain([0, 100/*d3.max(dataset, function(d) { return d[0]; })*/])
+                .range([h - padding, padding]);
+
+              svg.selectAll("circle")
+                .data(dots)
+                .enter()
+                .append("circle")
+                .attr("cx", function(d) { return xScale(d[1]); })
+                .attr("cy", function(d) { return yScale(d[2]); })
+                .attr("r", 5)
+                //.attr("r", function(d) { return Math.sqrt(h - d[1]);
+
+              svg.selectAll("text")
+                .data(dots)
+                .enter()
+                .append("text")
+                .text(function(d) { return d[0]; })
+                .attr("x", function(d) { return xScale(d[1]); })
+                .attr("y", function(d) { return yScale(d[2]); })
+
+
+
+
 }

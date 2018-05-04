@@ -1,5 +1,14 @@
 /* Ivo van der Zeyst, 6166474 */
 
 p {
-  font-family: Arial;
+  font-family: Calibri-light;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1;
+}
+
+.text {
+  font-family: Calibri-light;
+  font-size: 2px;
+  fill: blue;
 }
