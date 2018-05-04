@@ -8,8 +8,8 @@ var data2 = [];
 var data3 = [];
 var data4 = [];
 var data5 = [];
-var w = data.length * 5;
-var h = 500;
+var w = data.length * 4;
+var h = data.length * 3;
 var padding = 20;
 
 /*
@@ -30,10 +30,6 @@ function doFunction(error, response) {
   data5 = Object.values(data4);
 
   countries = data3.map(a => a.name);
-  //console.log(data2);
-  //console.log(data4);
-  //console.log(data5);
-  //console.log(data5[0][0]);
 
   for (var i = 0; i < data5.length; i++) {
     if (i % 60 == 0) {
@@ -44,30 +40,40 @@ function doFunction(error, response) {
     }
   }
 
-  //console.log(countries)
-  //console.log(variable1)
-  //console.log(variable2)
-
   for (var i = 0; i < countries.length; i++) {
     dots.push([countries[i], variable1[i], variable2[i]]);
   }
-
-  //console.log(dots)
 
   var svg = d3.select("body")
               .append("svg")
               .attr("width", w)
               .attr("height", h);
 
-
-
               var xScale = d3.scale.linear()
-               .domain([0, 100/*d3.max(dataset, function(d) { return d[0]; })*/])
-               .range([padding, w - padding * 2]);
+                .domain([0, 100])
+                .range([padding, w - padding * 2]);
 
-               var yScale = d3.scale.linear()
-                .domain([0, 100/*d3.max(dataset, function(d) { return d[0]; })*/])
+              var yScale = d3.scale.linear()
+                .domain([0, 100])
                 .range([h - padding, padding]);
+
+              var xAxis = d3.svg.axis()
+                .scale(xScale)
+                .orient("bottom");
+
+              var yAxis = d3.svg.axis()
+                .scale(yScale)
+                .orient("left")
+
+              svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0," + (h - padding) + ")")
+                .call(xAxis);
+
+              svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(" + padding + ",0)")
+                .call(yAxis);
 
               svg.selectAll("circle")
                 .data(dots)
@@ -76,7 +82,6 @@ function doFunction(error, response) {
                 .attr("cx", function(d) { return xScale(d[1]); })
                 .attr("cy", function(d) { return yScale(d[2]); })
                 .attr("r", 5)
-                //.attr("r", function(d) { return Math.sqrt(h - d[1]);
 
               svg.selectAll("text")
                 .data(dots)
@@ -85,8 +90,4 @@ function doFunction(error, response) {
                 .text(function(d) { return d[0]; })
                 .attr("x", function(d) { return xScale(d[1]); })
                 .attr("y", function(d) { return yScale(d[2]); })
-
-
-
-
 }

@@ -1,5 +1,21 @@
 /* Ivo van der Zeyst, 6166474 */
 
+.axis path
+{
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: Calibri-light;
+  font-size: 10px;
+}
+
 p {
   font-family: Calibri-light;
   font-size: 15px;
