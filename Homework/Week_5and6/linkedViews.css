@@ -4,3 +4,8 @@ p {
   font-family: calibri;
   text-align: center;
 }
+
+.axis {
+  shape-rendering: auto;
+  fill: grey;
+}
