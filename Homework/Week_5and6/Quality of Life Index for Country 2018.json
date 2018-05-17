@@ -1,7 +1,8 @@
 [
     {
-        "﻿Rank": "1",
+        "Rank": "1",
         "Country": "Denmark",
+        "CountryCode": "DNK",
         "Quality of Life Index": "197.75",
         "Purchasing Power Index": "117.53",
         "Safety Index": "77.98",
@@ -13,8 +14,9 @@
         "Climate Index": "82.42"
     },
     {
-        "﻿Rank": "2",
+        "Rank": "2",
         "Country": "Finland",
+        "CountryCode": "FIN",
         "Quality of Life Index": "195.30",
         "Purchasing Power Index": "119.42",
         "Safety Index": "76.30",
@@ -26,8 +28,9 @@
         "Climate Index": "58.63"
     },
     {
-        "﻿Rank": "3",
+        "Rank": "3",
         "Country": "Netherlands",
+        "CountryCode": "NLD",
         "Quality of Life Index": "191.25",
         "Purchasing Power Index": "109.48",
         "Safety Index": "71.06",
@@ -39,8 +42,9 @@
         "Climate Index": "86.93"
     },
     {
-        "﻿Rank": "4",
+        "Rank": "4",
         "Country": "Switzerland",
+        "CountryCode": "CHE",
         "Quality of Life Index": "190.81",
         "Purchasing Power Index": "126.15",
         "Safety Index": "78.24",
@@ -52,8 +56,9 @@
         "Climate Index": "79.78"
     },
     {
-        "﻿Rank": "5",
+        "Rank": "5",
         "Country": "Austria",
+        "CountryCode": "AUT",
         "Quality of Life Index": "190.22",
         "Purchasing Power Index": "98.69",
         "Safety Index": "79.59",
@@ -65,8 +70,9 @@
         "Climate Index": "77.74"
     },
     {
-        "﻿Rank": "6",
+        "Rank": "6",
         "Country": "Germany",
+        "CountryCode": "DEU",
         "Quality of Life Index": "190.04",
         "Purchasing Power Index": "125.01",
         "Safety Index": "63.35",
@@ -78,8 +84,9 @@
         "Climate Index": "82.53"
     },
     {
-        "﻿Rank": "7",
+        "Rank": "7",
         "Country": "Australia",
+        "CountryCode": "AUS",
         "Quality of Life Index": "188.70",
         "Purchasing Power Index": "122.98",
         "Safety Index": "57.45",
@@ -91,8 +98,9 @@
         "Climate Index": "92.41"
     },
     {
-        "﻿Rank": "8",
+        "Rank": "8",
         "Country": "New Zealand",
+        "CountryCode": "NZL",
         "Quality of Life Index": "182.40",
         "Purchasing Power Index": "98.61",
         "Safety Index": "60.85",
@@ -104,8 +112,9 @@
         "Climate Index": "96.10"
     },
     {
-        "﻿Rank": "9",
+        "Rank": "9",
         "Country": "United States",
+        "CountryCode": "USA",
         "Quality of Life Index": "180.56",
         "Purchasing Power Index": "127.62",
         "Safety Index": "50.42",
@@ -117,8 +126,9 @@
         "Climate Index": "78.23"
     },
     {
-        "﻿Rank": "10",
+        "Rank": "10",
         "Country": "Sweden",
+        "CountryCode": "SWE",
         "Quality of Life Index": "176.81",
         "Purchasing Power Index": "113.01",
         "Safety Index": "50.74",
@@ -130,8 +140,9 @@
         "Climate Index": "75.08"
     },
     {
-        "﻿Rank": "11",
+        "Rank": "11",
         "Country": "Estonia",
+        "CountryCode": "EST",
         "Quality of Life Index": "176.44",
         "Purchasing Power Index": "74.82",
         "Safety Index": "79.17",
@@ -143,8 +154,9 @@
         "Climate Index": "63.61"
     },
     {
-        "﻿Rank": "12",
+        "Rank": "12",
         "Country": "Norway",
+        "CountryCode": "NOR",
         "Quality of Life Index": "176.27",
         "Purchasing Power Index": "107.95",
         "Safety Index": "56.67",
@@ -156,8 +168,9 @@
         "Climate Index": "71.89"
     },
     {
-        "﻿Rank": "13",
+        "Rank": "13",
         "Country": "Japan",
+        "CountryCode": "JPN",
         "Quality of Life Index": "176.04",
         "Purchasing Power Index": "107.35",
         "Safety Index": "86.90",
@@ -169,8 +182,9 @@
         "Climate Index": "84.82"
     },
     {
-        "﻿Rank": "14",
+        "Rank": "14",
         "Country": "Slovenia",
+        "CountryCode": "SVN",
         "Quality of Life Index": "175.36",
         "Purchasing Power Index": "80.33",
         "Safety Index": "75.29",
@@ -182,8 +196,9 @@
         "Climate Index": "76.30"
     },
     {
-        "﻿Rank": "15",
+        "Rank": "15",
         "Country": "Spain",
+        "CountryCode": "ESP",
         "Quality of Life Index": "174.92",
         "Purchasing Power Index": "90.67",
         "Safety Index": "63.26",
@@ -195,8 +210,9 @@
         "Climate Index": "93.94"
     },
     {
-        "﻿Rank": "16",
+        "Rank": "16",
         "Country": "Canada",
+        "CountryCode": "CAN",
         "Quality of Life Index": "173.90",
         "Purchasing Power Index": "118.92",
         "Safety Index": "60.72",
@@ -208,8 +224,9 @@
         "Climate Index": "52.82"
     },
     {
-        "﻿Rank": "17",
+        "Rank": "17",
         "Country": "United Kingdom",
+        "CountryCode": "GBR",
         "Quality of Life Index": "171.89",
         "Purchasing Power Index": "108.54",
         "Safety Index": "58.80",
@@ -221,8 +238,9 @@
         "Climate Index": "87.92"
     },
     {
-        "﻿Rank": "18",
+        "Rank": "18",
         "Country": "Portugal",
+        "CountryCode": "PRT",
         "Quality of Life Index": "166.71",
         "Purchasing Power Index": "61.97",
         "Safety Index": "65.46",
@@ -234,8 +252,9 @@
         "Climate Index": "97.45"
     },
     {
-        "﻿Rank": "19",
+        "Rank": "19",
         "Country": "France",
+        "CountryCode": "FRA",
         "Quality of Life Index": "166.22",
         "Purchasing Power Index": "101.21",
         "Safety Index": "54.71",
@@ -247,8 +266,9 @@
         "Climate Index": "89.80"
     },
     {
-        "﻿Rank": "20",
+        "Rank": "20",
         "Country": "Belgium",
+        "CountryCode": "BEL",
         "Quality of Life Index": "164.00",
         "Purchasing Power Index": "98.91",
         "Safety Index": "57.83",
@@ -260,8 +280,9 @@
         "Climate Index": "86.14"
     },
     {
-        "﻿Rank": "21",
+        "Rank": "21",
         "Country": "United Arab Emirates",
+        "CountryCode": "ARE",
         "Quality of Life Index": "163.54",
         "Purchasing Power Index": "124.78",
         "Safety Index": "81.25",
@@ -273,8 +294,9 @@
         "Climate Index": "45.43"
     },
     {
-        "﻿Rank": "22",
+        "Rank": "22",
         "Country": "Ireland",
+        "CountryCode": "IRL",
         "Quality of Life Index": "163.53",
         "Purchasing Power Index": "96.10",
         "Safety Index": "56.18",
@@ -286,8 +308,9 @@
         "Climate Index": "89.43"
     },
     {
-        "﻿Rank": "23",
+        "Rank": "23",
         "Country": "Taiwan",
+        "CountryCode": "TWN",
         "Quality of Life Index": "163.28",
         "Purchasing Power Index": "106.38",
         "Safety Index": "79.26",
@@ -299,8 +322,9 @@
         "Climate Index": "83.79"
     },
     {
-        "﻿Rank": "24",
+        "Rank": "24",
         "Country": "Croatia",
+        "CountryCode": "HRV",
         "Quality of Life Index": "162.36",
         "Purchasing Power Index": "59.77",
         "Safety Index": "73.00",
@@ -312,8 +336,9 @@
         "Climate Index": "88.83"
     },
     {
-        "﻿Rank": "25",
+        "Rank": "25",
         "Country": "Czech Republic",
+        "CountryCode": "CZE",
         "Quality of Life Index": "162.01",
         "Purchasing Power Index": "76.35",
         "Safety Index": "71.19",
@@ -325,8 +350,9 @@
         "Climate Index": "77.87"
     },
     {
-        "﻿Rank": "26",
+        "Rank": "26",
         "Country": "Qatar",
+        "CountryCode": "QAT",
         "Quality of Life Index": "159.62",
         "Purchasing Power Index": "125.05",
         "Safety Index": "84.30",
@@ -338,8 +364,9 @@
         "Climate Index": "45.48"
     },
     {
-        "﻿Rank": "27",
+        "Rank": "27",
         "Country": "South Korea",
+        "CountryCode": "KOR",
         "Quality of Life Index": "155.38",
         "Purchasing Power Index": "109.36",
         "Safety Index": "64.17",
@@ -351,8 +378,9 @@
         "Climate Index": "67.20"
     },
     {
-        "﻿Rank": "28",
+        "Rank": "28",
         "Country": "Slovakia",
+        "CountryCode": "SVK",
         "Quality of Life Index": "155.37",
         "Purchasing Power Index": "67.29",
         "Safety Index": "69.85",
@@ -364,8 +392,9 @@
         "Climate Index": "77.66"
     },
     {
-        "﻿Rank": "29",
+        "Rank": "29",
         "Country": "Israel",
+        "CountryCode": "ISR",
         "Quality of Life Index": "152.25",
         "Purchasing Power Index": "102.30",
         "Safety Index": "63.10",
@@ -377,8 +406,9 @@
         "Climate Index": "93.61"
     },
     {
-        "﻿Rank": "30",
+        "Rank": "30",
         "Country": "Singapore",
+        "CountryCode": "SGP",
         "Quality of Life Index": "150.45",
         "Purchasing Power Index": "95.89",
         "Safety Index": "83.77",
@@ -390,8 +420,9 @@
         "Climate Index": "57.99"
     },
     {
-        "﻿Rank": "31",
+        "Rank": "31",
         "Country": "Saudi Arabia",
+        "CountryCode": "SAU",
         "Quality of Life Index": "149.58",
         "Purchasing Power Index": "131.46",
         "Safety Index": "63.31",
@@ -403,8 +434,9 @@
         "Climate Index": "41.02"
     },
     {
-        "﻿Rank": "32",
+        "Rank": "32",
         "Country": "Lithuania",
+        "CountryCode": "LTU",
         "Quality of Life Index": "148.98",
         "Purchasing Power Index": "57.29",
         "Safety Index": "62.41",
@@ -416,8 +448,9 @@
         "Climate Index": "68.76"
     },
     {
-        "﻿Rank": "33",
+        "Rank": "33",
         "Country": "Poland",
+        "CountryCode": "POL",
         "Quality of Life Index": "146.58",
         "Purchasing Power Index": "74.42",
         "Safety Index": "63.77",
@@ -429,8 +462,9 @@
         "Climate Index": "75.80"
     },
     {
-        "﻿Rank": "34",
+        "Rank": "34",
         "Country": "Italy",
+        "CountryCode": "ITA",
         "Quality of Life Index": "146.13",
         "Purchasing Power Index": "81.07",
         "Safety Index": "55.47",
@@ -442,8 +476,9 @@
         "Climate Index": "91.38"
     },
     {
-        "﻿Rank": "35",
+        "Rank": "35",
         "Country": "Romania",
+        "CountryCode": "ROU",
         "Quality of Life Index": "144.05",
         "Purchasing Power Index": "66.20",
         "Safety Index": "70.96",
@@ -455,8 +490,9 @@
         "Climate Index": "76.19"
     },
     {
-        "﻿Rank": "36",
+        "Rank": "36",
         "Country": "South Africa",
+        "CountryCode": "SGS",
         "Quality of Life Index": "137.89",
         "Purchasing Power Index": "99.83",
         "Safety Index": "24.29",
@@ -468,8 +504,9 @@
         "Climate Index": "95.98"
     },
     {
-        "﻿Rank": "37",
+        "Rank": "37",
         "Country": "Greece",
+        "CountryCode": "GRC",
         "Quality of Life Index": "137.43",
         "Purchasing Power Index": "53.80",
         "Safety Index": "60.93",
@@ -481,8 +518,9 @@
         "Climate Index": "92.58"
     },
     {
-        "﻿Rank": "38",
+        "Rank": "38",
         "Country": "Hungary",
+        "CountryCode": "HUN",
         "Quality of Life Index": "132.31",
         "Purchasing Power Index": "50.62",
         "Safety Index": "63.49",
@@ -494,8 +532,9 @@
         "Climate Index": "78.51"
     },
     {
-        "﻿Rank": "39",
+        "Rank": "39",
         "Country": "Argentina",
+        "CountryCode": "ARG",
         "Quality of Life Index": "131.85",
         "Purchasing Power Index": "60.15",
         "Safety Index": "38.21",
@@ -507,8 +546,9 @@
         "Climate Index": "98.22"
     },
     {
-        "﻿Rank": "40",
+        "Rank": "40",
         "Country": "Bulgaria",
+        "CountryCode": "BGR",
         "Quality of Life Index": "129.69",
         "Purchasing Power Index": "54.44",
         "Safety Index": "60.30",
@@ -520,8 +560,9 @@
         "Climate Index": "81.58"
     },
     {
-        "﻿Rank": "41",
+        "Rank": "41",
         "Country": "Bosnia And Herzegovina",
+        "CountryCode": "BIH",
         "Quality of Life Index": "129.33",
         "Purchasing Power Index": "52.40",
         "Safety Index": "59.95",
@@ -533,8 +574,9 @@
         "Climate Index": "78.89"
     },
     {
-        "﻿Rank": "42",
+        "Rank": "42",
         "Country": "Turkey",
+        "CountryCode": "TUR",
         "Quality of Life Index": "127.64",
         "Purchasing Power Index": "53.78",
         "Safety Index": "58.94",
@@ -546,8 +588,9 @@
         "Climate Index": "93.16"
     },
     {
-        "﻿Rank": "43",
+        "Rank": "43",
         "Country": "Mexico",
+        "CountryCode": "MEX",
         "Quality of Life Index": "126.42",
         "Purchasing Power Index": "58.18",
         "Safety Index": "48.95",
@@ -559,8 +602,9 @@
         "Climate Index": "82.49"
     },
     {
-        "﻿Rank": "44",
+        "Rank": "44",
         "Country": "Serbia",
+        "CountryCode": "SRB",
         "Quality of Life Index": "123.48",
         "Purchasing Power Index": "41.81",
         "Safety Index": "62.24",
@@ -572,8 +616,9 @@
         "Climate Index": "82.93"
     },
     {
-        "﻿Rank": "45",
+        "Rank": "45",
         "Country": "Chile",
+        "CountryCode": "CHL",
         "Quality of Life Index": "122.73",
         "Purchasing Power Index": "54.53",
         "Safety Index": "53.52",
@@ -585,8 +630,9 @@
         "Climate Index": "90.21"
     },
     {
-        "﻿Rank": "46",
+        "Rank": "46",
         "Country": "India",
+        "CountryCode": "IND",
         "Quality of Life Index": "122.09",
         "Purchasing Power Index": "79.27",
         "Safety Index": "55.84",
@@ -598,8 +644,9 @@
         "Climate Index": "65.68"
     },
     {
-        "﻿Rank": "47",
+        "Rank": "47",
         "Country": "Malaysia",
+        "CountryCode": "MYS",
         "Quality of Life Index": "116.05",
         "Purchasing Power Index": "72.98",
         "Safety Index": "36.95",
@@ -611,8 +658,9 @@
         "Climate Index": "58.11"
     },
     {
-        "﻿Rank": "48",
+        "Rank": "48",
         "Country": "Indonesia",
+        "CountryCode": "IDN",
         "Quality of Life Index": "112.89",
         "Purchasing Power Index": "37.49",
         "Safety Index": "55.28",
@@ -624,8 +672,9 @@
         "Climate Index": "68.19"
     },
     {
-        "﻿Rank": "49",
+        "Rank": "49",
         "Country": "Colombia",
+        "CountryCode": "COL",
         "Quality of Life Index": "112.15",
         "Purchasing Power Index": "38.59",
         "Safety Index": "49.34",
@@ -637,8 +686,9 @@
         "Climate Index": "96.72"
     },
     {
-        "﻿Rank": "50",
+        "Rank": "50",
         "Country": "Hong Kong",
+        "CountryCode": "HKG",
         "Quality of Life Index": "110.28",
         "Purchasing Power Index": "82.86",
         "Safety Index": "79.10",
@@ -650,8 +700,9 @@
         "Climate Index": "83.64"
     },
     {
-        "﻿Rank": "51",
+        "Rank": "51",
         "Country": "Russia",
+        "CountryCode": "RUS",
         "Quality of Life Index": "103.32",
         "Purchasing Power Index": "51.11",
         "Safety Index": "54.80",
@@ -663,8 +714,9 @@
         "Climate Index": "44.70"
     },
     {
-        "﻿Rank": "52",
+        "Rank": "52",
         "Country": "Thailand",
+        "CountryCode": "THA",
         "Quality of Life Index": "101.18",
         "Purchasing Power Index": "38.59",
         "Safety Index": "52.75",
@@ -676,8 +728,9 @@
         "Climate Index": "68.64"
     },
     {
-        "﻿Rank": "53",
+        "Rank": "53",
         "Country": "Pakistan",
+        "CountryCode": "PAK",
         "Quality of Life Index": "100.35",
         "Purchasing Power Index": "41.11",
         "Safety Index": "48.77",
@@ -689,8 +742,9 @@
         "Climate Index": "71.90"
     },
     {
-        "﻿Rank": "54",
+        "Rank": "54",
         "Country": "Brazil",
+        "CountryCode": "BRA",
         "Quality of Life Index": "100.13",
         "Purchasing Power Index": "41.55",
         "Safety Index": "29.45",
@@ -702,8 +756,9 @@
         "Climate Index": "94.23"
     },
     {
-        "﻿Rank": "55",
+        "Rank": "55",
         "Country": "China",
+        "CountryCode": "CHN",
         "Quality of Life Index": "99.43",
         "Purchasing Power Index": "72.28",
         "Safety Index": "60.56",
@@ -715,8 +770,9 @@
         "Climate Index": "78.81"
     },
     {
-        "﻿Rank": "56",
+        "Rank": "56",
         "Country": "Philippines",
+        "CountryCode": "PHL",
         "Quality of Life Index": "99.11",
         "Purchasing Power Index": "34.02",
         "Safety Index": "59.87",
@@ -728,8 +784,9 @@
         "Climate Index": "60.63"
     },
     {
-        "﻿Rank": "57",
+        "Rank": "57",
         "Country": "Ukraine",
+        "CountryCode": "UKR",
         "Quality of Life Index": "95.96",
         "Purchasing Power Index": "30.24",
         "Safety Index": "50.61",
@@ -741,8 +798,9 @@
         "Climate Index": "70.20"
     },
     {
-        "﻿Rank": "58",
+        "Rank": "58",
         "Country": "Iran",
+        "CountryCode": "IRN",
         "Quality of Life Index": "92.43",
         "Purchasing Power Index": "45.60",
         "Safety Index": "50.60",
@@ -754,8 +812,9 @@
         "Climate Index": "69.54"
     },
     {
-        "﻿Rank": "59",
+        "Rank": "59",
         "Country": "Egypt",
+        "CountryCode": "EGY",
         "Quality of Life Index": "84.42",
         "Purchasing Power Index": "24.67",
         "Safety Index": "46.28",
@@ -767,8 +826,9 @@
         "Climate Index": "91.98"
     },
     {
-        "﻿Rank": "60",
+        "Rank": "60",
         "Country": "Vietnam",
+        "CountryCode": "VNM",
         "Quality of Life Index": "81.09",
         "Purchasing Power Index": "30.09",
         "Safety Index": "47.78",

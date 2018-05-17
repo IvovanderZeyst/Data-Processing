@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>linkedViews</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
 		<!--<script src="https://d3js.org/d3-request.v1.min.js"></script>-->
-		<script src="https://d3js.org/d3-queue.v3.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.world.min.js"></script>
-    <script type="text/javascript" src="datamaps.world.hires.min.js"></script>
+		<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.world.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="linkedViews.js"></script>
     <link rel="stylesheet" href="linkedViews.css">
+    <script type="text/javascript" src="datamaps.world.hires.min.js"></script>
   </head>
   <body>
-    <p>Student: Ivo van der Zeyst</p>
-    <p>Studentnumber: 6166474</p>
-    <p>Fill this further with explanation of both visualisations</p>
-    <p>Source: https://numbeo.com</p>
-    <div id='container' style="position: relative; width: 2000px; height: 1000px;"></div>
+    <div class="row">
+      <div class="col-lg-12" id="head" height: 500px;>
+        <p>Student: Ivo van der Zeyst</p>
+        <p>Studentnumber: 6166474</p>
+        <p>Fill this further with explanation of both visualisations</p>
+        <p>Source: https://numbeo.com</p>
+      </div>
+    <div class="row">
+      <div class="col-lg-12" id="head" height: 100px;>
+        <div id="option">
+            <input name="updateButton" type="button" value="Update" onclick="updateData()"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" id='container' style="position: relative; height: 700px;"></div>
+      <div class="col-lg-6" id='container2' style="position: relative; height: 700px;"></div>
+    </div>
   </body>
 </html>

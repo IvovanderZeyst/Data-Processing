@@ -1,11 +1,36 @@
+/*
 p {
   font-size: 16px;
-  line-height: 1px;
+  line-height: 2px;
   font-family: calibri;
+}
+*/
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #41484D;
+  stroke-width: 1;
+}
+
+#head {
   text-align: center;
 }
 
-.axis {
-  shape-rendering: auto;
-  fill: grey;
-}
+/*
+legenda beide makePlots
+tweede plot toevoegen aan container 2
+interactief  element toevoegen
+axis scatterplot toevoegen
+Denk eraan om je werk ook op Github Pages te zetten, daar doe je je nakijker een groot plezier mee ;-)
+Let op de maat van je grafieken, nu zijn ze wel erg groot.
+De queue functie laadt alle data al voor je in, en via de functie die je hem meegeeft in awaitAll kun je je data vervolgens aanroepen. Dan heb je de d3.json functie dus niet meer nodig.
+Je zou je code straks nog netter kunnen construeren door bijvoorbeeld verschillende functies te gebruiken voor het laden van de data, het aanmaken van de visualisatie etc.
+Denk eraan dat je console.logs en uitgecommente dingen straks ook uit je code haalt.
+Het design van de webpagina als geheel wordt ook meegenomen in je beoordeling. Brengt je website het verhaal dat je probeert te vertellen (storytelling) over? Dus besteed straks ook nog wat tijd aan goede beschrijvende teksten e.d. NB: De resultaten van deze week worden niet meegenomen in het eindresultaat van de opdracht.
+
+
+
+
+
+*/
