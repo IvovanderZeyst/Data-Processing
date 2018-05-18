@@ -1,4 +1,4 @@
-Rank,Country,CountryCode,Quality of Life Index,Purchasing Power Index,Safety Index,Health Care Index,Cost of Living Index,Property Price to Income Ratio,Traffic Commute Time Index,Pollution Index,Climate Index
+Rank,Country,CountryCode,QualityOfLifeIndex,PurchasingPowerIndex,SafetyIndex,HealthCareIndex,CostOfLivingIndex,PropertyPriceToIncomeRatio,TrafficCommuteTimeIndex,PollutionIndex,ClimateIndex
 1,Denmark,DNK,197.75,117.53,77.98,77.07,93.30,7.22,28.53,23.60,82.42
 2,Finland,FIN,195.30,119.42,76.30,75.40,81.70,7.49,33.23,12.07,58.63
 3,Netherlands,NLD,191.25,109.48,71.06,81.08,82.69,6.74,32.73,27.16,86.93

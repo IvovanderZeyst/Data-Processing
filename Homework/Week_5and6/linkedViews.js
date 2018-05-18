@@ -4,20 +4,43 @@ window.onload = function() {
 	d3.queue()
 		.defer(d3.json, 'Quality of Life Index for Country 2012.json')
 		.defer(d3.json, 'Quality of Life Index for Country 2018.json')
+		.await(main)
 }
 
-d3.json('Quality of Life Index for Country 2012.json', function(data) {
+function main(error, data2012, data2018) {
+	makeMap(data2012, data2018)
+	makeScatterplot(data2012, data2018)
+}
 
-  var colourScale = d3.scale.linear()
-          .domain([d3.min(data, function(d) { return parseInt(d.QualityOfLifeIndex * 1.2)}), d3.max(data, function(d) { return parseInt(d.QualityOfLifeIndex * 1.2)})])
-          .range(["#F42825","#05FA22"]);
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAKE FUNCTION WITH TWO TIMES DATA
+function updateData2(error, data2012, data2018) {
+	makeMap(data2012, data2018)
+	makeScatterplot(data2012, data2018)
+}
 
-	var CountryCodes = {};
-	for (var i = 0; i < data.length; i++) {
-		let code = data[i].CountryCode;
-		let quality = data[i].QualityOfLifeIndex
-		CountryCodes[code] = { numberOfThings: quality, fillColor: colourScale(quality) }
-	}
+function makeMap(data1, data2) {
+
+	var colourScale = d3.scale.linear()
+		.domain([d3.min(data1, function(d) { return parseInt(d.SafetyIndex * 1.2)}), d3.max(data1, function(d) { return parseInt(d.SafetyIndex * 1.2)})])
+		.range(["#F42825","#05FA22"]);
+
+	var colourScale2 = d3.scale.linear()
+		.domain([d3.min(data2, function(d) { return parseInt(d.SafetyIndex * 1.2)}), d3.max(data2, function(d) { return parseInt(d.SafetyIndex * 1.2)})])
+		.range(["#F42825","#05FA22"]);
+
+	var CountryCodes1 = {};
+		for (var i = 0; i < data1.length; i++) {
+			let code = data1[i].CountryCode;
+			let quality = data1[i].SafetyIndex
+			CountryCodes1[code] = { numberOfThings: quality, fillColor: colourScale(quality) }
+		}
+
+	var CountryCodes2 = {};
+		for (var i = 0; i < data2.length; i++) {
+			let code = data2[i].CountryCode;
+			let quality = data2[i].SafetyIndex
+			CountryCodes2[code] = { numberOfThings: quality, fillColor: colourScale2(quality) }
+		}
 
 	var worldMap = new Datamap({
 	  scope: 'world'
@@ -25,41 +48,55 @@ d3.json('Quality of Life Index for Country 2012.json', function(data) {
 	  , projection: 'mercator'
 		, geographyConfig: {
 				borderColor: '#000000'
-    }
+	  }
 		, fills: {
-				defaultFill: '#CFCFCF'
+			defaultFill: '#CFCFCF'
 		}
-		, data: CountryCodes
-	})
-})
+		, data: CountryCodes1
+		})
 
-d3.json('Quality of Life Index for Country 2012.json', function(data) {
+	d3.select('#option')
+		.on("click", worldMap.updateChoropleth({
+			scope: 'world'
+			, element: document.getElementById('container')
+			, projection: 'mercator'
+			, geographyConfig: {
+				borderColor: '#000000'
+			}
+			, fills: {
+				defaultFill: '#CFCFCF'
+			}
+			, data: CountryCodes2}))
+}
+
+
+function makeScatterplot(data1, data2) {
 	var padding = {top: 30, right: 30, bottom: 100, left: 30};
-	var xBoundEnd = d3.max(data, function(d) { return parseInt(d.QualityOfLifeIndex * 1.2); })
-	var xBoundStart = d3.min(data, function(d) { return parseInt(d.QualityOfLifeIndex * 1.2); })
-	var yBoundEnd = d3.max(data, function(d) { return parseInt(d.PollutionIndex * 1.2); })
-	var yBoundStart = d3.min(data, function(d) { return parseInt(d.PollutionIndex * 1.2); })
+	var xBoundEnd = 140//d3.max(data, function(d) { return parseInt(d.SafetyIndex * 1.2); })
+	var xBoundStart = 0//d3.min(data, function(d) { return parseInt(d.SafetyIndex * 1.2); })
+	var yBoundEnd = 140//d3.max(data, function(d) { return parseInt(d.PurchasingPowerIndex * 1.2); })
+	var yBoundStart = 0//d3.min(data, function(d) { return parseInt(d.PurchasingPowerIndex * 1.2); })
 	var w = 950;
 	var h = 700;
 	var dots = [];
 	var Country = [];
-	var QualityOfLifeIndex = [];
-	var PollutionIndex = [];
+	var SafetyIndex = [];
+	var PurchasingPowerIndex = [];
 
-for (var i = 0; i < data.length; i++) {
-		Country.push(data[i].Country);
+for (var i = 0; i < data1.length; i++) {
+		Country.push(data1[i].Country);
 	}
 
-	for (var i = 0; i < data.length; i++) {
-		QualityOfLifeIndex.push(data[i].QualityOfLifeIndex);
+	for (var i = 0; i < data1.length; i++) {
+		SafetyIndex.push(data1[i].SafetyIndex);
 	}
 
-	for (var i = 0; i < data.length; i++) {
-		PollutionIndex.push(data[i].PollutionIndex);
+	for (var i = 0; i < data1.length; i++) {
+		PurchasingPowerIndex.push(data1[i].PurchasingPowerIndex);
 	}
 
-  for (var i = 0; i < data.length; i++) {
-    dots.push([Country[i], QualityOfLifeIndex[i], PollutionIndex[i]]);
+  for (var i = 0; i < data1.length; i++) {
+    dots.push([Country[i], SafetyIndex[i], PurchasingPowerIndex[i]]);
   }
 
 var svg = d3.select("#container2")
@@ -72,8 +109,8 @@ var xScale = d3.scale.linear()
   .range([padding.left, w - padding.right]);
 
 var yScale = d3.scale.linear()
-  .domain([yBoundStart - 20, yBoundEnd])
-  .range([h - padding.left, padding.bottom]);
+  .domain([yBoundStart, yBoundEnd])
+  .range([h - padding.left, padding.top]);
 
 var xAxis = d3.svg.axis()
   .scale(xScale)
@@ -90,22 +127,22 @@ svg.append("g")
 
 svg.append("g")
   .attr("class", "axis")
-  .attr("transform", "translate(" + (padding.top + 370) + ",0)")
+  .attr("transform", "translate(" + padding.top + ",0)")
   .call(yAxis);
 
 svg.selectAll("circle")
   .data(dots)
   .enter()
   .append("circle")
-  .attr("cx", function(d) { return xScale(d[1]); })
-  .attr("cy", function(d) { return yScale(d[2]); })
+  .attr("cx", function(data1) { return xScale(data1[1]); })
+  .attr("cy", function(data1) { return yScale(data1[2]); })
   .attr("r", 5)
 
 svg.selectAll("text")
   .data(dots)
   .enter()
   .append("text")
-  .text(function(d) { return d[0]; })
-  .attr("x", function(d) { return xScale(d[1]); })
-  .attr("y", function(d) { return yScale(d[2]); })
-})
+  .text(function(data1) { return data1[0]; })
+  .attr("x", function(data1) { return xScale(data1[1]); })
+  .attr("y", function(data1) { return yScale(data1[2]); })
+}
