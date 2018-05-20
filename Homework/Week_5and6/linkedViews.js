@@ -1,5 +1,6 @@
 //Student: Ivo van der Zeyst
 //Studentnumber: 6166474
+
 window.onload = function() {
 	d3.queue()
 		.defer(d3.json, 'Quality of Life Index for Country 2012.json')
@@ -7,25 +8,15 @@ window.onload = function() {
 		.await(main)
 }
 
-function main(error, data2012, data2018) {
-	makeMap(data2012, data2018)
-	makeScatterplot(data2012, data2018)
+function main(error, data2012) {
+	makeMap(data2012)
+	makeScatterplot(data2012)
 }
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAKE FUNCTION WITH TWO TIMES DATA
-function updateData2(error, data2012, data2018) {
-	makeMap(data2012, data2018)
-	makeScatterplot(data2012, data2018)
-}
-
-function makeMap(data1, data2) {
+function makeMap(data1) {
 
 	var colourScale = d3.scale.linear()
 		.domain([d3.min(data1, function(d) { return parseInt(d.SafetyIndex * 1.2)}), d3.max(data1, function(d) { return parseInt(d.SafetyIndex * 1.2)})])
-		.range(["#F42825","#05FA22"]);
-
-	var colourScale2 = d3.scale.linear()
-		.domain([d3.min(data2, function(d) { return parseInt(d.SafetyIndex * 1.2)}), d3.max(data2, function(d) { return parseInt(d.SafetyIndex * 1.2)})])
 		.range(["#F42825","#05FA22"]);
 
 	var CountryCodes1 = {};
@@ -33,14 +24,7 @@ function makeMap(data1, data2) {
 			let code = data1[i].CountryCode;
 			let quality = data1[i].SafetyIndex
 			CountryCodes1[code] = { numberOfThings: quality, fillColor: colourScale(quality) }
-		}
-
-	var CountryCodes2 = {};
-		for (var i = 0; i < data2.length; i++) {
-			let code = data2[i].CountryCode;
-			let quality = data2[i].SafetyIndex
-			CountryCodes2[code] = { numberOfThings: quality, fillColor: colourScale2(quality) }
-		}
+	}
 
 	var worldMap = new Datamap({
 	  scope: 'world'
@@ -53,24 +37,17 @@ function makeMap(data1, data2) {
 			defaultFill: '#CFCFCF'
 		}
 		, data: CountryCodes1
-		})
+		, height: 550
+		, width: 900
+	})
 
-	d3.select('#option')
-		.on("click", worldMap.updateChoropleth({
-			scope: 'world'
-			, element: document.getElementById('container')
-			, projection: 'mercator'
-			, geographyConfig: {
-				borderColor: '#000000'
-			}
-			, fills: {
-				defaultFill: '#CFCFCF'
-			}
-			, data: CountryCodes2}))
+	var leg = {
+  	legendTitle: "Safety Index"
+	};
 }
 
 
-function makeScatterplot(data1, data2) {
+function makeScatterplot(data1) {
 	var padding = {top: 30, right: 30, bottom: 100, left: 30};
 	var xBoundEnd = 140//d3.max(data, function(d) { return parseInt(d.SafetyIndex * 1.2); })
 	var xBoundStart = 0//d3.min(data, function(d) { return parseInt(d.SafetyIndex * 1.2); })
@@ -136,13 +113,44 @@ svg.selectAll("circle")
   .append("circle")
   .attr("cx", function(data1) { return xScale(data1[1]); })
   .attr("cy", function(data1) { return yScale(data1[2]); })
-  .attr("r", 5)
+  .attr("r", 7)
 
 svg.selectAll("text")
   .data(dots)
   .enter()
   .append("text")
   .text(function(data1) { return data1[0]; })
-  .attr("x", function(data1) { return xScale(data1[1]); })
-  .attr("y", function(data1) { return yScale(data1[2]); })
+  .attr("x", function(data1) { return xScale(data1[1]) + 5; })
+  .attr("y", function(data1) { return yScale(data1[2]) - 5; })
+
+	svg.append("text")
+      .attr("transform", "translate(500, 660)")
+      .style("text-anchor", "end")
+      .text("Safety Index")
 }
+
+d3.json('Quality of Life Index for Country 2018.json', function(data) {
+
+	var colourScale2 = d3.scale.linear()
+		.domain([d3.min(data, function(d) { return parseInt(d.SafetyIndex * 1.2)}), d3.max(data, function(d) { return parseInt(d.SafetyIndex * 1.2)})])
+		.range(["#F42825","#05FA22"]);
+
+	var CountryCodes2 = {};
+		for (var i = 0; i < data.length; i++) {
+			let code = data[i].CountryCode;
+			let quality = data[i].SafetyIndex
+			data[code] = { numberOfThings: quality, fillColor: colourScale2(quality) }
+		}
+
+	function updateBoth(data) {
+		d3.select("#button")
+			.data(data)
+			.enter()
+			.on("click", function(data) {
+				worldMap.updateChoropleth({
+					data: CountryCodes2
+				})
+			}
+		)
+	}
+})
